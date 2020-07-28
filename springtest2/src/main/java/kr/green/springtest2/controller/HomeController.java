@@ -9,14 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
-
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView homeGet(ModelAndView mv) {
-		logger.info("URI:/main/home:GET");
+		logger.info("URI:/");
 		mv.setViewName("/main/home");
-
+		
 		return mv;
 	}
 }

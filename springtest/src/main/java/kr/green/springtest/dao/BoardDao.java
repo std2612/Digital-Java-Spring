@@ -24,5 +24,4 @@ public interface BoardDao {
 	void insertUp(@Param("boNum")int num, @Param("id")String id);
 
 	void updateBoardByUp(@Param("num")int num);
-
 }

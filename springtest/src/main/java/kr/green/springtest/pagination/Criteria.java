@@ -1,6 +1,7 @@
 package kr.green.springtest.pagination;
 
 public class Criteria {
+	
 	private int page;
 	private int perPageNum;
 	private String search;

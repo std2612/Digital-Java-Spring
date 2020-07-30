@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <br>
 <h1>
 	<a href="<%=request.getContextPath()%>/board/list">게시판</a>
@@ -21,9 +20,9 @@
 			<c:forEach var="board" items="${list}">
 				<tr>
 					<td>${board.num}</td>
-					<td><a
-						href="<%=request.getContextPath()%>/board/detail?num=${board.num}&page=${pm.cri.page}&type=${pm.cri.type}&search=${pm.cri.search}">
-							${board.title} </a></td>
+					<td>
+						<a href="<%=request.getContextPath()%>/board/detail?num=${board.num}&page=${pm.cri.page}&type=${pm.cri.type}&search=${pm.cri.search}"> ${board.title} </a>
+					</td>
 					<td>${board.writer}</td>
 					<td>${board.registerDate}</td>
 					<td>${board.views}</td>
@@ -38,50 +37,47 @@
 		</c:if>
 	</tbody>
 </table>
-<a href="<%=request.getContextPath()%>/board/list"><button>게시판
-		목록</button></a>
+<a href="<%=request.getContextPath()%>/board/list">
+	<button>게시판 목록</button>
+</a>
 <c:if test="${user != null}">
-	<a href="<%=request.getContextPath()%>/board/register"><button>글쓰기</button></a>
+	<a href="<%=request.getContextPath()%>/board/register">
+		<button>글쓰기</button>
+	</a>
 </c:if>
 <br>
 <br>
 
 <ul class="pagination justify-content-center">
-	<li class="page-item <c:if test="${!pm.prev}">disabled</c:if>"><a
-		class="page-link"
-		href="<%=request.getContextPath()%>/board/list?page=${pm.startPage-1}&type=${pm.cri.type}&search=${pm.cri.search}">
+	<li class="page-item <c:if test="${!pm.prev}">disabled</c:if>">
+		<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pm.startPage-1}&type=${pm.cri.type}&search=${pm.cri.search}">
 			<i class="fas fa-angle-double-left"></i>
-	</a></li>
+		</a>
+	</li>
 
 	<li class="page-item <c:if test="${pm.cri.page == 1}">disabled</c:if>">
-		<a class="page-link"
-		href="<%=request.getContextPath()%>/board/list?page=${pm.cri.page-1}&type=${pm.cri.type}&search=${pm.cri.search}">
+		<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pm.cri.page-1}&type=${pm.cri.type}&search=${pm.cri.search}">
 			<i class="fas fa-chevron-left"></i>
-	</a>
+		</a>
 	</li>
 
 	<c:forEach var="index" begin="${pm.startPage}" end="${pm.endPage}">
-		<li
-			class="page-item <c:if test="${pm.cri.page == index}">active</c:if>">
-			<a class="page-link"
-			href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pm.cri.type}&search=${pm.cri.search}">
-				${index} </a>
+		<li class="page-item <c:if test="${pm.cri.page == index}">active</c:if>">
+			<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pm.cri.type}&search=${pm.cri.search}"> ${index} </a>
 		</li>
 	</c:forEach>
 
-	<li
-		class="page-item <c:if test="${pm.cri.page == pm.lastEndPage}">disabled</c:if>">
-		<a class="page-link"
-		href="<%=request.getContextPath()%>/board/list?page=${pm.cri.page+1}&type=${pm.cri.type}&search=${pm.cri.search}">
+	<li class="page-item <c:if test="${pm.cri.page == pm.lastEndPage}">disabled</c:if>">
+		<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pm.cri.page+1}&type=${pm.cri.type}&search=${pm.cri.search}">
 			<i class="fas fa-chevron-right"></i>
-	</a>
+		</a>
 	</li>
 
-	<li class="page-item <c:if test="${!pm.next}">disabled</c:if>"><a
-		class="page-link"
-		href="<%=request.getContextPath()%>/board/list?page=${pm.endPage+1}&type=${pm.cri.type}&search=${pm.cri.search}">
+	<li class="page-item <c:if test="${!pm.next}">disabled</c:if>">
+		<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pm.endPage+1}&type=${pm.cri.type}&search=${pm.cri.search}">
 			<i class="fas fa-angle-double-right"></i>
-	</a></li>
+		</a>
+	</li>
 </ul>
 
 <form>
@@ -91,8 +87,8 @@
 			<option value="1" <c:if test="${pm.cri.type==1}">selected</c:if>>작성자</option>
 			<option value="2" <c:if test="${pm.cri.type==2}">selected</c:if>>제목</option>
 			<option value="3" <c:if test="${pm.cri.type==3}">selected</c:if>>내용</option>
-		</select> <input type="text" class="form-control search" placeholder="검색"
-			name="search" value="${pm.cri.search}">
+		</select>
+		<input type="text" class="form-control search" placeholder="검색" name="search" value="${pm.cri.search}">
 		<div class="input-group-append">
 			<button class="btn btn-success" type="submit">검색</button>
 		</div>

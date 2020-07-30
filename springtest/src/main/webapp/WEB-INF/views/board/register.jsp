@@ -1,10 +1,8 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<form method="post" action="<%=request.getContextPath()%>/board/register" enctype="multipart/form-data">
-	<div class="board-header detail form-group">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-	</div>
+<form method="post" action="<%=request.getContextPath()%>/board/register" enctype="multipart/form-data">
+	<div class="board-header detail form-group"></div>
 	<div class="board-title detail form-group">
 		<input class="form-control" name="title" placeholder="제목">
 	</div>
@@ -15,7 +13,11 @@
 		<input class="form-control" name="file2" type="file">
 	</div>
 	<div class="float-right btn-groups">
-		<a href="<%=request.getContextPath()%>/board/list"><button class="btn btn-outline-success" type="button">목록</button></a>
-		<a href="#"><button class="btn btn-outline-success">등록</button></a>
+		<a href="<%=request.getContextPath()%>/board/list">
+			<button class="btn btn-outline-success" type="button">목록</button>
+		</a>
+		<a href="#">
+			<button class="btn btn-outline-success">등록</button>
+		</a>
 	</div>
 </form>

@@ -1,6 +1,7 @@
 package kr.green.springtest.pagination;
 
 public class PageMaker {
+	
 	private int totalCount;
 	private int startPage;
 	private int endPage;

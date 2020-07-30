@@ -18,9 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.green.springtest.service.UserService;
 import kr.green.springtest.vo.UserVo;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class HomeController {
 

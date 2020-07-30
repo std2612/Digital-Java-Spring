@@ -14,6 +14,7 @@ public class BoardVo {
 	private char isDel;
 	private int views;
 	private int up;
+	private int like;
 	private String file;
 
 	public String getFile() {
@@ -38,6 +39,14 @@ public class BoardVo {
 
 	public void setNum(int num) {
 		this.num = num;
+	}
+
+	public int getLike() {
+		return like;
+	}
+
+	public void setLike(int like) {
+		this.like = like;
 	}
 
 	public String getTitle() {
@@ -110,7 +119,7 @@ public class BoardVo {
 	public String toString() {
 		return "BoardVo [num=" + num + ", title=" + title + ", content=" + content + ", writer=" + writer
 				+ ", registerDate=" + registerDate + ", delDate=" + delDate + ", isDel=" + isDel + ", views=" + views
-				+ ", up=" + up + ", file=" + file + "]";
+				+ ", up=" + up + ", like=" + like + ", file=" + file + "]";
 	}
 
 //	DB에 저장된 file 이름은 /년도/월/일/uuid_파일명.확장자 로 되어있는데

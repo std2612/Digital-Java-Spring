@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<br>
 <h1>회원가입</h1>
 <form method="post" action="<%=request.getContextPath()%>/signup">
     <div class="form-group">
@@ -27,8 +28,10 @@
         <label for="email">이메일</label>
         <input type="email" class="form-control" id="email" placeholder="이메일">
     </div>
-    <button>가입하기</button>
-    <button type="button">취소</button>
+    <button class="btn btn-success">가입하기</button>
+    <a href="<%=request.getContextPath()%>/">
+    	<button type="button" class="btn btn-danger">가입 취소</button>
+    </a>
 </form>
 
 <script>

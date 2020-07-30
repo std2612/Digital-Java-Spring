@@ -35,8 +35,36 @@
 		</c:if>
 	</tbody>
 </table>
-
-<button type="button" class="btn btn-danger">
-	<a href="<%=  %>">글쓰기</a>
-</button>
+<a href="<%=request.getContextPath()%>/board/register">
+	<button type="button" class="btn btn-danger">글쓰기</button>
+</a>
 <br>
+<ul class="pagination justify-content-center">
+	<li class="page-item <c:if test="${!pm.prev}">disabled</c:if>">
+		<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pm.startPage-1}&search=${pm.cri.search}&type=${pm.cri.type}">Previous</a>
+	</li>
+	<c:forEach var="index" begin="${pm.startPage}" end="${pm.endPage}">
+		<li class="page-item <c:if test="${pm.cri.page == index}">active</c:if>">
+			<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&search=${pm.cri.search}&type=${pm.cri.type}">${index}</a>
+		</li>
+	</c:forEach>
+	<li class="page-item <c:if test="${!pm.next}">disabled</c:if>">
+		<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pm.endPage+1}&search=${pm.cri.search}&type=${pm.cri.type}">Next</a>
+	</li>
+</ul>
+
+<form action="<%=request.getContextPath()%>/board/list">
+	<div class="input-group mb-3">
+		<select class="form-control" id="sel1" name="type">
+
+			<option value="0" <c:if test="${pm.cri.type == 0}">selected</c:if>>전체</option>
+			<option value="1" <c:if test="${pm.cri.type == 1}">selected</c:if>>작성자</option>
+			<option value="2" <c:if test="${pm.cri.type == 2}">selected</c:if>>제목</option>
+			<option value="3" <c:if test="${pm.cri.type == 3}">selected</c:if>>내용</option>
+		</select>
+		<input type="text" class="form-control" placeholder="Search" name="search" value="${pm.cri.search}">
+		<div class="input-group-append">
+			<button class="btn btn-success" type="submit">Go</button>
+		</div>
+	</div>
+</form>

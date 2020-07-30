@@ -1,26 +1,63 @@
 package kr.green.springtest2.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.green.springtest2.dao.BoardDao;
+import kr.green.springtest2.pagination.Criteria;
+import kr.green.springtest2.pagination.PageMaker;
 import kr.green.springtest2.vo.BoardVo;
 
 @Service
 public class BoardServiceImp implements BoardService {
-	
+
 	@Autowired
 	private BoardDao boardDao;
 
 	@Override
-	public ArrayList<BoardVo> getBoardlist() {
-		return boardDao.getBoardList();
+	public ArrayList<BoardVo> getBoardlist(Criteria cri) {
+		return boardDao.getBoardList(cri);
 	}
 
 	@Override
 	public BoardVo getBoard(Integer num) {
 		return boardDao.getBoard(num);
 	}
+
+	@Override
+	public void insertBoard(BoardVo board) {
+		boardDao.insertBoard(board);
+	}
+
+	@Override
+	public void updateBoard(BoardVo board) {
+		board.setIsDel('N');
+		boardDao.updateBoard(board);
+	}
+
+	@Override
+	public void deleteBoard(BoardVo board) {
+		board.setIsDel('Y');
+		board.setDelDate(new Date());
+		boardDao.updateBoard(board);
+	}
+
+	@Override
+	public PageMaker getPageMaker(Criteria cri) {
+		PageMaker pm = new PageMaker();
+		Integer totalCount = boardDao.getTotalCount(cri);
+		pm.setCri(cri);
+		pm.setTotalCount(totalCount);
+		return pm;
+	}
+
+	@Override
+	public void increaseViews(BoardVo board) {
+		board.setViews(board.getViews() + 1);
+		boardDao.updateBoard(board);
+	}
+
 }

@@ -43,7 +43,7 @@
 		</li>
 	</c:forEach>
 	<li class="page-item <c:if test="${!pm.next}">disabled</c:if>">
-		<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pm.endPage+1}&search=${pm.cri.search}&type=${pm.cri.type}">Next</a>
+		<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pm.endPage+1}&search=${pm.cri.search}&type=${pm.cri.type}"> Next </a>
 	</li>
 </ul>
 <!-- 페이지네이션 end -->

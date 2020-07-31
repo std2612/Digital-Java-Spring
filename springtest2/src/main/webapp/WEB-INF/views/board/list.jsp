@@ -35,9 +35,11 @@
 		</c:if>
 	</tbody>
 </table>
-<a href="<%=request.getContextPath()%>/board/register">
-	<button type="button" class="btn btn-danger">글쓰기</button>
-</a>
+<c:if test="${user != null}">
+	<a href="<%=request.getContextPath()%>/board/register">
+		<button type="button" class="btn btn-danger">글쓰기</button>
+	</a>
+</c:if>
 <br>
 <ul class="pagination justify-content-center">
 	<li class="page-item <c:if test="${!pm.prev}">disabled</c:if>">
@@ -56,13 +58,12 @@
 <form action="<%=request.getContextPath()%>/board/list">
 	<div class="input-group mb-3">
 		<select class="form-control" id="sel1" name="type">
-
 			<option value="0" <c:if test="${pm.cri.type == 0}">selected</c:if>>전체</option>
 			<option value="1" <c:if test="${pm.cri.type == 1}">selected</c:if>>작성자</option>
 			<option value="2" <c:if test="${pm.cri.type == 2}">selected</c:if>>제목</option>
 			<option value="3" <c:if test="${pm.cri.type == 3}">selected</c:if>>내용</option>
 		</select>
-		<input type="text" class="form-control" placeholder="Search" name="search" value="${pm.cri.search}">
+		<input type="text" class="form-control" placeholder="Search" name="search" value="${pm.cri.search}" style="width: 70%">
 		<div class="input-group-append">
 			<button class="btn btn-success" type="submit">Go</button>
 		</div>

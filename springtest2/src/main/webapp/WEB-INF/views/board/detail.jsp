@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<br>
 <c:if test="${board == null}">
 	<h1>해당 게시물은 없는 게시글입니다.</h1>
 </c:if>
@@ -48,12 +49,16 @@
 			<label for="content">글 내용</label>
 			<textarea class="form-control" rows="5" id="content" readonly>${board.content}</textarea>
 		</div>
-		<a href="<%=request.getContextPath()%>/board/modify?num=${board.num}">
-			<button type="button" class="btn btn-warning">수정</button>
-		</a>
-		<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}">
-			<button type="button" class="btn btn-danger">삭제</button>
-		</a>
+		<c:if test="${user != null && user.id == board.writer}">
+			<a href="<%=request.getContextPath()%>/board/modify?num=${board.num}">
+				<button type="button" class="btn btn-warning">수정</button>
+			</a>
+		</c:if>
+		<c:if test="${user != null && user.id == board.writer}">
+			<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}">
+				<button type="button" class="btn btn-danger">삭제</button>
+			</a>
+		</c:if>
 		<a href="<%=request.getContextPath()%>/board/list">
 			<button type="button" class="btn btn-primary">목록</button>
 		</a>

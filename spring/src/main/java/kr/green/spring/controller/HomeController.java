@@ -123,7 +123,7 @@ public class HomeController {
 //		랜덤으로 비밀번호를 생성
 		int len = 13;
 		String newPw = "";
-		for (int i = 0; i < 13; i++) {
+		for (int i = 0; i < len; i++) {
 //			0~9는 0~9
 //			10~35는 소문자 a~z
 //			36~61는 대문자 A~Z

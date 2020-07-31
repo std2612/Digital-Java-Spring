@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 
+<br>
+<h1>게시글 수정</h1>
+<br>
 <form method="post" action="<%=request.getContextPath()%>/board/modify">
 	<div class="form-group">
 		<label for="writer">작성자</label>

@@ -8,6 +8,6 @@
 	</insert>
 
 	<select id="getUser" resultType="kr.green.springtest2.vo.UserVo">
-		select * from board where id = #{id};
+		select * from user where id = #{id};
 	</select>
 </mapper>

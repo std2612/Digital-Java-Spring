@@ -59,6 +59,7 @@ public class HomeController {
 	@RequestMapping(value = "/user/signup", method = RequestMethod.POST)
 	public ModelAndView signupPost(ModelAndView mv, UserVo user) {
 		logger.info("URI:/signup:POST");
+		
 		if (userService.signup(user)) {
 			mv.setViewName("redirect:/");
 		} else {

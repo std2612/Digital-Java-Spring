@@ -3,20 +3,23 @@
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
 	<div class="container">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand main-logo" href="<%=request.getContextPath()%>/"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
+					<a class="nav-link" href="#">자유 게시판</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
+					<a class="nav-link" href="#">내 루틴</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
+					<a class="nav-link" href="#">로그인</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">회원가입</a>
 				</li>
 			</ul>
 		</div>

@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+.main-logo {
+	background-image: url(../img/logo/logo_transparent.png);
+	width: 100px;
+	height: 100px;
+	background-size: contain;
+}

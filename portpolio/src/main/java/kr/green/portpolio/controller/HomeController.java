@@ -13,9 +13,25 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home(ModelAndView mv) {
+	public ModelAndView getMain(ModelAndView mv) {
 		logger.info("URI:/");
 		mv.setViewName("/main/home");
+
+		return mv;
+	}
+	
+	@RequestMapping(value = "/signin", method = RequestMethod.GET)
+	public ModelAndView getSignin(ModelAndView mv) {
+		logger.info("URI:/signin");
+		mv.setViewName("/main/signin");
+
+		return mv;
+	}
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public ModelAndView getSignup(ModelAndView mv) {
+		logger.info("URI:/signup");
+		mv.setViewName("/main/signup");
 
 		return mv;
 	}

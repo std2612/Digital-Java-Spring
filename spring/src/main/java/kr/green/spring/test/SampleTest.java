@@ -24,11 +24,6 @@ public class SampleTest {
 					"root", "cjgreen");
 			System.out.println("성공");
 			Statement stmt = con.createStatement();
-//			ResultSet rs = stmt.executeQuery("select * from user");
-//			while(rs.next()){
-//				System.out.println(rs.getString("id"));
-//				System.out.println(rs.getString("pw"));
-//			}
 		} catch (Exception e) {
 			System.out.println("실패");
 			System.out.println(e.getMessage());

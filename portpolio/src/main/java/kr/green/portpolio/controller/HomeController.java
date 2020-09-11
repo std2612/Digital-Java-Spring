@@ -13,7 +13,7 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home(ModelAndView mv) {
+	public ModelAndView homeGet(ModelAndView mv) {
 		logger.info("URI:/");
 		mv.setViewName("/main/home");
 
